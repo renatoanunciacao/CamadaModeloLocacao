@@ -6,6 +6,7 @@
 package br.edu.ifsul.testes;
 
 import br.edu.ifsul.modelo.Filme;
+import br.edu.ifsul.modelo.ItensLocacao;
 import br.edu.ifsul.modelo.Locacao;
 import br.edu.ifsul.modelo.Pessoa;
 import java.util.Calendar;
@@ -42,23 +43,20 @@ public class TestePersistirLocacao {
         em.close();
         emf.close();
     }
-    
+
     @Test
-    public void persistirLocacao(){
+    public void persistirLocacao() {
         boolean exception = false;
-        try{
+        try {
             Locacao l = new Locacao();
             l.setEmprestimo(new GregorianCalendar(2017, Calendar.FEBRUARY, 05));
             l.setDevolucao(new GregorianCalendar(2017, Calendar.MARCH, 05));
-             Pessoa p = em.find(Pessoa.class, 1);
-            Filme f = em.find(Filme.class, 1);
+            Pessoa p = em.find(Pessoa.class, 1);
             l.setPessoa(p);
-            l.setFilme(f);
             em.getTransaction().begin();
             em.persist(l);
             em.getTransaction().commit();
-          
-        } catch (Exception e) {
+          } catch (Exception e) {
             exception = true;
             e.printStackTrace();
         }

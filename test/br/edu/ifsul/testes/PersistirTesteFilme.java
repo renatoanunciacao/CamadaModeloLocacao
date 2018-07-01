@@ -6,7 +6,6 @@
 package br.edu.ifsul.testes;
 
 import br.edu.ifsul.modelo.Filme;
-import br.edu.ifsul.modelo.Locacao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -48,7 +47,6 @@ public class PersistirTesteFilme {
             f.setNome("Mad Max: Estrada da Fúria");
             f.setDescricao("Em um mundo apocalíptico, Max Rockatansky acredita que a melhor forma de sobreviver é não depender de ninguém. Porém, após ser capturado pelo tirano Immortan Joe e seus rebeldes, Max se vê no meio de uma guerra mortal, iniciada pela imperatriz Furiosa que tenta salvar um grupo de garotas. Também tentando fugir, Max aceita ajudar Furiosa. Dessa vez, o tirano Joe está ainda mais implacável pois teve algo insubstituível roubado.");
             f.setValor(9.90);
-           
             em.getTransaction().begin();
             em.persist(f);
             em.getTransaction().commit();

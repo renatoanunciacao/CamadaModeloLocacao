@@ -42,16 +42,10 @@ public class Filme implements Serializable {
     @NotBlank(message = "A descrição não pode ser em branco")
     @Column(name = "descricao", columnDefinition = "text")
     private String descricao;
-    @NotNull(message = "O valor não pode ser nulo")
     @Min(value = 1)
     @Column(name = "valor", columnDefinition = "numeric(12,2)")
     private Double valor;
 
-    //Faz relação do projeto
-    @ManyToOne
-    @JoinColumn(name = "locacao", referencedColumnName = "codigo",
-            foreignKey = @ForeignKey(name = "fk_locacao_id"))
-    private Locacao locacao;
 
     public Filme() {
     }
@@ -86,14 +80,6 @@ public class Filme implements Serializable {
 
     public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    public Locacao getLocacao() {
-        return locacao;
-    }
-
-    public void setLocacao(Locacao locacao) {
-        this.locacao = locacao;
     }
 
     @Override
