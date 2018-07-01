@@ -45,7 +45,7 @@ public class TestePersistirItens {
         try{
             ItensLocacao i = new ItensLocacao();
             Locacao l = em.find(Locacao.class, 1);
-            Filme f = em.find(Filme.class, 1);
+            Filme f = em.find(Filme.class, 2);
             i.setLocacao(l);
             i.setFilme(f);
             em.getTransaction().begin();

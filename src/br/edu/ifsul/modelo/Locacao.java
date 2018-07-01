@@ -64,13 +64,13 @@ public class Locacao implements Serializable {
 
     public void adicionarFilme(ItensLocacao obj) {
         obj.setLocacao(this);
-       // this.setValorTotal(this.getValorTotal() + obj.getFilme().getValor()); //atualiza o valor dos itens adicionados no valor total
+        this.valorTotal += obj.getFilme().getValor();
         this.getItensLocacao().add(obj); //adiciona o filme na lista
     }
 
     public void removerFilme(int index) {
         ItensLocacao obj = this.getItensLocacao().get(index); //instacia o objeto do item para pegar o indice
-       // this.setValorTotal(this.getValorTotal() - obj.getFilme().getValor()); //atualiza o valor dos itens removidos no valor total
+        this.setValorTotal(this.getValorTotal() - obj.getFilme().getValor()); //atualiza o valor dos itens removidos no valor total
         this.getItensLocacao().remove(index); //remove o filme da lista
     }
 
